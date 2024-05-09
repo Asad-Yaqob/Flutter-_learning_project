@@ -14,30 +14,39 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void getDetails() async{
+  void getDetails() async {
     SharedPreferences userLog = await SharedPreferences.getInstance();
     var email = userLog.getString("userEmail");
     if (email != null) {
-      Timer(Duration(milliseconds: 2000), () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+      Timer(Duration(milliseconds: 5000), () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ));
       });
-    }
-    else {
-      Timer(Duration(milliseconds: 2000), (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+    } else {
+      Timer(Duration(milliseconds: 5000), () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LoginPage(),
+            ));
       });
     }
   }
 
   @override
-  void initState(){
+  void initState() {
     getDetails();
     super.initState();
   }
+
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("SplashScreen!"),
+        child: Image(
+            image: NetworkImage("https://assets-global.website-files.com/5c7fdbdd4e3feeee8dd96dd2/6134707265a929f4cdfc1f6d_5.gif")),
       ),
     );
   }
