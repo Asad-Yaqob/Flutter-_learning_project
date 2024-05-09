@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_project/login.dart';
+import 'package:learning_project/services/firebase_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,12 +20,6 @@ class _HomePageState extends State<HomePage> {
     return email;
   }
 
-  void userLogout () async{
-    SharedPreferences userLog = await SharedPreferences.getInstance();
-    userLog.clear();
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
-  }
-
   @override
   void initState(){
     getUserDetails().then( (value) {
@@ -38,11 +33,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(userEmail),
            SizedBox(height: 40,),
            ElevatedButton(onPressed: (){
-                   userLogout();
+                   MyFirebaseServices.userLogout(context);
            }, child: const Text("Logout"))
           ],
         ),

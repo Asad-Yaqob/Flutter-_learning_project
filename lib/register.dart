@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_project/login.dart';
 import 'package:learning_project/services/firebase_services.dart';
@@ -14,16 +13,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
   bool isHide =true;
-  void UserRegister() async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email.text, password: pass.text);
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Registration Successful!")));
-    } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("$e")));
-    }
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     GestureDetector(
                       onTap: (){
-                          UserRegister();
+                          MyFirebaseServices.userRegister(email, pass, context);
                       },
                       child: Container(
                         width: 350,

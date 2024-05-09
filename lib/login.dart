@@ -1,8 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:learning_project/homepage.dart';
 import 'package:learning_project/register.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:learning_project/services/firebase_services.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,21 +13,6 @@ class _LoginPageState extends State<LoginPage> {
   bool isHide = true;
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
-  void UserLogin() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email.text, password: pass.text);
-
-      final SharedPreferences userLog = await SharedPreferences.getInstance();
-      userLog.setString("userEmail", email.text);
-
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Login Successful!")));
-      
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
-    } on FirebaseAuthException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("$e")));
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        UserLogin();
+                        MyFirebaseServices.userLogin(email, pass, context);
                       },
                       child: Container(
                         width: 350,
