@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_project/firebase_options.dart';
-import 'package:learning_project/register.dart';
 import 'package:learning_project/splashscreen.dart';
 
-import 'BottomNavigationBar/main_screen.dart';
+import 'BottomNavigation/main_screen.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home:  const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

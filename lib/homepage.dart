@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning_project/login.dart';
-import 'package:learning_project/services/firebase_services.dart';
+import 'package:learning_project/Services/firebase_services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
