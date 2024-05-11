@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:learning_project/BottomNavigationBar/main_screen.dart';
 import 'package:learning_project/homepage.dart';
 import 'package:learning_project/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -26,7 +27,7 @@ class MyFirebaseServices {
      userLog.setString("userEmail", userEmail.text);
 
      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Login Successful!")));
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen(),));
 
     } on FirebaseAuthException catch (e){
       ScaffoldMessenger.of(context).showSnackBar( SnackBar(content: Text("$e")));

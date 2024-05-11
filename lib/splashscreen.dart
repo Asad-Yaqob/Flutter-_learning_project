@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:learning_project/BottomNavigationBar/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'homepage.dart';
@@ -18,15 +19,15 @@ class _SplashScreenState extends State<SplashScreen> {
     SharedPreferences userLog = await SharedPreferences.getInstance();
     var email = userLog.getString("userEmail");
     if (email != null) {
-      Timer(Duration(milliseconds: 5000), () {
+      Timer(Duration(milliseconds: 3000), () {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => HomePage(),
+              builder: (context) => MainScreen(),
             ));
       });
     } else {
-      Timer(Duration(milliseconds: 5000), () {
+      Timer(Duration(milliseconds: 3000), () {
         Navigator.push(
             context,
             MaterialPageRoute(

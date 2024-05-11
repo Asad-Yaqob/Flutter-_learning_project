@@ -4,6 +4,8 @@ import 'package:learning_project/firebase_options.dart';
 import 'package:learning_project/register.dart';
 import 'package:learning_project/splashscreen.dart';
 
+import 'BottomNavigationBar/main_screen.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -38,6 +40,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
