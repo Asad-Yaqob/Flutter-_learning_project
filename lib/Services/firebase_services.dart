@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:learning_project/BottomNavigation/home_screen.dart';
-import 'package:learning_project/BottomNavigation/main_screen.dart';
-import 'package:learning_project/homepage.dart';
-import 'package:learning_project/Auth/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../Auth/login.dart';
+import '../BottomNavigationBar/main_screen.dart';
 
 class MyFirebaseServices {
 

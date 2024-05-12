@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:learning_project/firebase_options.dart';
 import 'package:learning_project/splashscreen.dart';
 
-import 'BottomNavigation/main_screen.dart';
-
-
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
