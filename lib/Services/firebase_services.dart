@@ -40,4 +40,12 @@ class MyFirebaseServices {
     userLog.clear();
     Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
   }
+  static Future getUserDetails() async{
+    SharedPreferences userLog = await SharedPreferences.getInstance();
+    var email =  userLog.getString("userEmail");
+
+    return email;
+  }
+
 }
+

@@ -12,16 +12,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String  userEmail = " ";
 
-  Future getUserDetails() async{
-    SharedPreferences userLog = await SharedPreferences.getInstance();
-    var email =  userLog.getString("userEmail");
-
-    return email;
-  }
-
   @override
   void initState(){
-    getUserDetails().then( (value) {
+   MyFirebaseServices.getUserDetails().then( (value) {
       setState(() {
         userEmail = value;
       });
